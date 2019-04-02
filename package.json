@@ -1,0 +1,19 @@
+{
+  "name": "cortex-chain",
+  "version": "1.0.0",
+  "description": "Blockchain Interactions Service",
+  "main": "service.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cortex-core/cortex-chain.git"
+  },
+  "author": "Basar Turgut",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/cortex-core/cortex-chain/issues"
+  },
+  "homepage": "https://github.com/cortex-core/cortex-chain#readme"
+}
