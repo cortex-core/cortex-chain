@@ -1,8 +1,7 @@
 {
   "name": "cortex-chain",
-  "version": "1.0.0",
   "description": "Blockchain Interactions Service",
-  "main": "service.js",
+  "main": "service/main/service.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -15,5 +14,8 @@
   "bugs": {
     "url": "https://github.com/cortex-core/cortex-chain/issues"
   },
-  "homepage": "https://github.com/cortex-core/cortex-chain#readme"
+  "homepage": "https://github.com/cortex-core/cortex-chain#readme",
+  "devDependencies": {
+    "lerna": "^3.14.1"
+  }
 }
