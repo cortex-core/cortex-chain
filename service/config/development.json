@@ -1,0 +1,4 @@
+{
+  "service_port": 8010,
+  "mongo": "mongodb://mongodb:27017/"
+}
