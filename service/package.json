@@ -1,5 +1,5 @@
 {
-  "name": "service",
+  "name": "cortex-chain-service",
   "version": "1.0.1",
   "description": "Blockchain Interactions Service",
   "main": "main/service.js",
@@ -10,7 +10,8 @@
   "author": "Basar Turgut",
   "license": "GPL-3.0",
   "dependencies": {
-    "cortex-route-client": "^1.0.6",
+    "config": "^3.2.4",
+    "cortex-route-client": "^1.0.9",
     "express": "^4.17.1",
     "express-validator": "^5.3.1",
     "helmet": "^3.18.0",

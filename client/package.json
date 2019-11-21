@@ -1,5 +1,5 @@
 {
-  "name": "client",
+  "name": "cortex-chain-client",
   "version": "1.0.1",
   "description": "Client to communicate with cortex-chain-service",
   "main": "main/client.js",

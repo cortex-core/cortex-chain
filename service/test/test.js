@@ -1,3 +1,5 @@
+process.env['NODE_CONFIG_DIR'] = './config/';
+
 const chai = require('chai');
 const chai_http = require('chai-http');
 const _ = require('lodash');
@@ -5,13 +7,22 @@ const chai_date_string = require('chai-date-string');
 const MongoClient = require("mongodb").MongoClient;
 const MongoClientMock = require('mongo-mock').MongoClient;
 const ObjectId = require('mongo-mock').ObjectId;
-const log = require('cortex-route-shared').log;
 const sinon = require('sinon');
 const Client = require('cortex-route-client');
+const winston = require('winston');
+const config = require('config');
 
 chai.should();
 chai.use(chai_http);
 chai.use(chai_date_string);
+
+const log = winston.createLogger({
+    level: 'silly',
+    format: winston.format.json(),
+    transports: [
+        new winston.transports.Console()
+    ]
+});
 
 describe('cortex-chain simple tests', function() {
 
@@ -27,7 +38,7 @@ describe('cortex-chain simple tests', function() {
             mongo_stub = sinon.stub(MongoClient, 'connect');
             cortex_route_client_stub = sinon.stub(Client.prototype, 'query_routes');
 
-            MongoClientMock.connect('mongodb://mongodb:27017/', function(db_err, db) {
+            MongoClientMock.connect(config.get('mongo'), function(db_err, db) {
                 chai.should().equal(db_err, null);
                 _db = db.db("cortex-chain");
                 _db.collection("tasks").insert({_id: ObjectId('7df78ad8902c'), authority:'address1', peers:['address2'], created:'2016-05-18T16:00:00.000Z'}, function(err) {

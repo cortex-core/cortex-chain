@@ -1,3 +1,5 @@
+process.env['NODE_CONFIG_DIR'] = './config/';
+
 const express = require('express');
 const helmet = require('helmet');
 const bodyParser = require('body-parser');
@@ -6,8 +8,9 @@ const { MongoClient, ObjectId } = require('mongodb');
 const validator = require('express-validator');
 const _ = require('lodash');
 const RouteClient = require('cortex-route-client');
+const config = require('config');
 
-const url = 'mongodb://mongodb:27017/';
+const mongo_url = config.get("mongo");
 
 const log = winston.createLogger({
     level: 'silly',
@@ -28,7 +31,7 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(validator());
 
-MongoClient.connect(url, function(err, db) {
+MongoClient.connect(mongo_url, function(err, db) {
 
     if (err) {
         log.error("Mongo DB connection has been failed.");
@@ -132,7 +135,7 @@ MongoClient.connect(url, function(err, db) {
         });
     });
 
-    app.listen(8080, function() {
+    app.listen(config.get("service_port"), function() {
         log.info("cortex-chain started.");
     });
 });
