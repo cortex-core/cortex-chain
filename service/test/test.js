@@ -24,7 +24,7 @@ const log = winston.createLogger({
     ]
 });
 
-describe('cortex-chain simple tests', function() {
+describe('cortex-chain functional tests', function() {
 
     let mongo_stub;
     let service;

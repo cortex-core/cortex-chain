@@ -41,6 +41,7 @@ MongoClient.connect(mongo_url, function(err, db) {
     log.info("Mongo DB connection has been provided.");
     _db = db.db("cortex-chain");
 
+    // What if task is not mine
     app.get('/task', function(req, res) {
         log.debug("Query Task method is being called");
         req.checkQuery('task_id', 'Task Id is required!').notEmpty();
